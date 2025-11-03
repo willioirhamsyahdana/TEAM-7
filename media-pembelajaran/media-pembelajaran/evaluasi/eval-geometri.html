@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Evaluasi Geometri - Kerucut</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  body { background:#e4ffec; font-family:"Poppins",sans-serif; }
+  .section-box { background:#fff; padding:18px; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.08); margin-bottom:18px; }
+  .hero { border-radius:18px; padding:28px 20px; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+  .btn-main { background:#28a745; color:#fff; border-radius:10px; font-weight:600; }
+  .benar { background:#d8ffdf !important; }
+  .salah { background:#ffd7d7 !important; }
+  .sol-box { background:#f8f9fa; padding:12px; border-radius:8px; margin-top:10px; border-left:4px solid #0d6efd; }
+  .rekap-table th { text-align:center; }
+  .rekap-table td { text-align:center; }
+</style>
+</head>
+<body class="container py-4">
+
+<!-- HEADER -->
+<div class="container mt-4 mb-4">
+  <div class="hero text-center shadow" style="background:linear-gradient(135deg,#93c5fd,#a5f3fc); color:#003366;">
+    <h1 class="fw-bold mb-2">📘 Evaluasi – Geometri (Kerucut)</h1>
+    <p class="mt-1">Jawablah soal berikut dengan teliti!</p>
+    <p class="mt-1">Jawablah soal di bawah ini dengan tepat!</p>
+  </div>
+</div>
+
+<!-- QUIZ AREA -->
+<main class="container py-2">
+  <div id="quiz-area"></div>
+
+  <div class="text-center mt-3">
+    <button class="btn btn-main" onclick="periksaSemua()">✅ Periksa Semua</button>
+  </div>
+
+  <h4 id="skorText" class="fw-bold text-center mt-4"></h4>
+
+  <!-- REKAP -->
+  <div id="rekap-container" class="d-none mt-3">
+    <div class="section-box">
+      <h5 class="fw-bold">📊 Rekap Nilai</h5>
+      <div class="table-responsive">
+        <table class="table table-bordered rekap-table align-middle">
+          <thead class="table-success">
+            <tr>
+              <th>No</th>
+              <th>Kunci Jawaban</th>
+              <th>Skor</th>
+              <th>Perhitungan Nilai (Skor × 10)</th>
+              <th>Penyelesaian</th>
+            </tr>
+          </thead>
+          <tbody id="rekap-body"></tbody>
+        </table>
+      </div>
+      <p><b>Jumlah Skor Maksimal :</b> 100</p>
+      <p id="nilaiAkhirTxt" class="fw-bold"></p>
+    </div>
+  </div>
+
+  <div class="text-center mt-4 mb-5">
+    <a href="./eval.html" class="btn btn-outline-secondary">⬅ Kembali</a>
+  </div>
+</main>
+
+<!-- AUDIO -->
+<audio id="audioBenar" src="../assets/BENAR.mp3"></audio>
+
+<!-- Tambahkan di atas body -->
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<body class="container py-4">
+
+
+
+
+<!-- AUDIO -->
+<audio id="audioBenar" src="../assets/BENAR.mp3"></audio>
+
+<script>
+/*******************************
+ * DATA SOAL + KUNCI + PENYELESAIAN (MathJax)
+ *******************************/
+const soalList = [
+  {
+    soal: "1) Sebuah kerucut memiliki jari-jari alas 7 cm dan garis pelukis 10 cm. Hitung luas selimut kerucut! \\( \\pi = \\dfrac{22}{7} \\)",
+    jawaban: 220,
+    solusi: `Penyelesaian :
+\\( \\text{Luas selimut} = \\pi \\times r \\times s \\)
+\\( = \\dfrac{22}{7} \\times 7 \\times 10 \\)
+\\( = 22 \\times 10 = 220\\,\\text{cm}^2 \\)`
+  },
+  {
+    soal: "2) Sebuah kerucut memiliki jari-jari alas 6 cm dan garis pelukis 10 cm. Hitung luas permukaan! \\( \\pi = 3.14 \\)",
+    jawaban: 301.44,
+    solusi: `Penyelesaian :
+\\( L = \\pi \\times r (r + s) \\)
+\\( = 3.14 \\times 6 \\times (6 + 10) \\)
+\\( = 3.14 \\times 6 \\times 16 \\)
+\\( = 3.14 \\times 96 = 301.44\\,\\text{cm}^2 \\)`
+  },
+  {
+    soal: "3) Sebuah kerucut memiliki jari-jari alas 7 cm. Jika luas selimut kerucut 308 cm², tentukan panjang garis pelukis s! \\( \\pi = \\dfrac{22}{7} \\)",
+    jawaban: 14,
+    solusi: `Penyelesaian :
+\\( L = \\pi \\times r \\times s \\)
+\\( 308 = \\dfrac{22}{7} \\times 7 \\times s \\)
+\\( 308 = 22s \\)
+\\( s = \\dfrac{308}{22} = 14\\,\\text{cm} \\)`
+  },
+  {
+    soal: "4) Sebuah kerucut memiliki jari-jari alas 7 cm dan tinggi 9 cm. Hitung volume kerucut! \\( \\pi = \\dfrac{22}{7} \\)",
+    jawaban: 462,
+    solusi: `Penyelesaian :
+\\( V = \\dfrac{1}{3} \\pi r^2 t \\)
+\\( = \\dfrac{1}{3} \\times \\dfrac{22}{7} \\times 7^2 \\times 9 \\)
+\\( = \\dfrac{1}{3} \\times \\dfrac{22}{7} \\times 49 \\times 9 \\)
+\\( = \\dfrac{1}{3} \\times \\dfrac{22 \\times 441}{7} = \\dfrac{1}{3} \\times 1386 = 462\\,\\text{cm}^3 \\)`
+  },
+  {
+    soal: "5) Sebuah kerucut memiliki jari-jari 6 cm dan tinggi 12 cm. Hitung volumenya \\( \\pi = 3.14 \\)",
+    jawaban: 452.16,
+    solusi: `Penyelesaian :
+\\( V = \\dfrac{1}{3} \\pi r^2 t \\)
+\\( = \\dfrac{1}{3} \\times 3.14 \\times 6^2 \\times 12 \\)
+\\( = \\dfrac{1}{3} \\times 3.14 \\times 36 \\times 12 \\)
+\\( = \\dfrac{1}{3} \\times 3.14 \\times 432 = \\dfrac{1}{3} \\times 1356.48 = 452.16\\,\\text{cm}^3 \\)`
+  },
+  {
+    soal: "6) Sebuah kerucut memiliki jari-jari 5 cm dan volumenya 261,67 cm³. Hitung tinggi kerucutnya! \\( \\pi = 3.14 \\)",
+    jawaban: 10,
+    solusi: `Penyelesaian :
+\\( V = \\dfrac{1}{3} \\pi r^2 t \\)
+\\( 261.67 = \\dfrac{1}{3} \\times 3.14 \\times 5^2 \\times t \\)
+\\( 261.67 = \\dfrac{1}{3} \\times 3.14 \\times 25 \\times t \\)
+\\( 261.67 = 26.17t \\)
+\\( t = \\dfrac{261.67}{26.17} = 10 \\)`
+  },
+  {
+    soal: "7) Rani membuat topi ulang tahun berbentuk kerucut. \\( r = 7\\,\\text{cm}, s = 10\\,\\text{cm} \\). Hitung luas permukaan! \\( \\pi = \\dfrac{22}{7} \\)",
+    jawaban: 374,
+    solusi: `Penyelesaian :
+\\( L = \\pi r (r + s) \\)
+\\( = \\dfrac{22}{7} \\times 7 \\times (7 + 10) \\)
+\\( = 22 \\times 17 = 374\\,\\text{cm}^2 \\)`
+  },
+  {
+    soal: "8) Sebuah topi kerucut memiliki jari-jari 7 cm. Luas permukaan topi = 374 cm². Tentukan panjang s! \\( \\pi = \\dfrac{22}{7} \\)",
+    jawaban: 10,
+    solusi: `Penyelesaian :
+\\( L = \\pi r (r + s) \\)
+\\( 374 = \\dfrac{22}{7} \\times 7 \\times (7 + s) \\)
+\\( 374 = 22(7 + s) \\)
+\\( \\dfrac{374}{22} = 7 + s \\)
+\\( 17 = 7 + s \\Rightarrow s = 10 \\)`
+  },
+  {
+    soal: "9) Sebuah tenda berbentuk kerucut \\( r = 4\\,\\text{m}, t = 9\\,\\text{m} \\). Hitung volume! \\( \\pi = 3.14 \\)",
+    jawaban: 150.72,
+    solusi: `Penyelesaian :
+\\( V = \\dfrac{1}{3} \\pi r^2 t \\)
+\\( = \\dfrac{1}{3} \\times 3.14 \\times 4^2 \\times 9 \\)
+\\( = \\dfrac{1}{3} \\times 3.14 \\times 16 \\times 9 \\)
+\\( = \\dfrac{1}{3} \\times 452.16 = 150.72\\,\\text{m}^3 \\)`
+  },
+  {
+    soal: "10) Sebuah kerucut tanah liat \\( r = 5\\,\\text{cm}, V = 261.67\\,\\text{cm}^3 \\). Hitung tinggi! \\( \\pi = 3.14 \\)",
+    jawaban: 10,
+    solusi: `Penyelesaian :
+\\( V = \\dfrac{1}{3} \\pi r^2 t \\)
+\\( 261.67 = \\dfrac{1}{3} \\times 3.14 \\times 5^2 \\times t \\)
+\\( 261.67 = 26.17t \\)
+\\( t = \\dfrac{261.67}{26.17} = 10 \\)`
+  }
+];
+
+/*******************************
+ * RENDER SOAL
+ *******************************/
+function renderSoal(){
+  const area = document.getElementById('quiz-area');
+  let html = '';
+  soalList.forEach((it, idx) => {
+    html += `
+      <div id="soal-${idx}" class="section-box">
+        <p class="fw-bold mb-2">${it.soal}</p>
+        <input id="jawab-${idx}" class="form-control" placeholder="Masukkan jawaban (angka saja)">
+        <div id="sol-${idx}" class="sol-box d-none"></div>
+      </div>
+    `;
+  });
+  area.innerHTML = html;
+  MathJax.typeset(); // render MathJax
+}
+renderSoal();
+
+/*******************************
+ * UTILITAS DAN PEMERIKSAAN (tetap sama)
+ *******************************/
+function nearlyEqual(a,b,relTol=0.01){
+  if(typeof a!=='number'||typeof b!=='number')return false;
+  const diff=Math.abs(a-b);
+  return diff<=Math.abs(b)*relTol+1e-9;
+}
+function periksaSemua(){
+  let skor=0;
+  const audioBenar=document.getElementById('audioBenar');
+  const rekap=[];
+  soalList.forEach((it,i)=>{
+    const input=document.getElementById(`jawab-${i}`);
+    const box=document.getElementById(`soal-${i}`);
+    const solBox=document.getElementById(`sol-${i}`);
+    const raw=(input.value||'').toString().trim().replace(',','.');
+    const valNum=parseFloat(raw);
+    const isNumber=!Number.isNaN(valNum);
+    let benar=false;
+    if(isNumber){benar=nearlyEqual(valNum,Number(it.jawaban),0.01);}else{benar=raw===String(it.jawaban);}
+    solBox.classList.remove('d-none');
+    solBox.innerHTML=it.solusi;
+    MathJax.typesetPromise([solBox]);
+    box.classList.remove('benar','salah');
+    if(benar){box.classList.add('benar');skor+=10;try{audioBenar.currentTime=0;audioBenar.play();}catch(e){}}
+    else{box.classList.add('salah');}
+    rekap.push({no:i+1,kunci:it.jawaban,skor:benar?10:0,nilai:benar?10:0,solusi:it.solusi});
+  });
+  document.getElementById('skorText').textContent=`Nilai Kamu: ${skor}`;
+  tampilkanRekap(rekap,skor);
+}
+function tampilkanRekap(rows,totalSkor){
+  const tbody=document.getElementById('rekap-body');
+  let html='';
+  rows.forEach(r=>{
+    html+=`
+      <tr>
+        <td>${r.no}</td>
+        <td>${r.kunci}</td>
+        <td>${r.skor}</td>
+        <td>${r.nilai}</td>
+        <td><pre style="white-space:pre-wrap;text-align:left;margin:0">${r.solusi}</pre></td>
+      </tr>`;
+  });
+  tbody.innerHTML=html;
+  MathJax.typesetPromise([tbody]);
+  document.getElementById('nilaiAkhirTxt').textContent=`Nilai Akhir: ${totalSkor} / 100`;
+  document.getElementById('rekap-container').classList.remove('d-none');
+  document.getElementById('rekap-container').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+
+</body>
+</html>

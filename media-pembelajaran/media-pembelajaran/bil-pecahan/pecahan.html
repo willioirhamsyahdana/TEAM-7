@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bilangan Pecahan — Materi Lengkap</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background:#f9f9ff; }
+    .hero { background: linear-gradient(45deg,#54a0ff,#5f27cd); color:#fff; padding:40px 20px; border-radius:10px; }
+    .section-box { background:#fff; border-radius:12px; padding:18px; margin-bottom:18px; box-shadow:0 4px 12px rgba(0,0,0,0.06); }
+    h2 { color:#341f97; }
+    .highlight { background:#fffae6; border-left:6px solid #ff9f43; padding:10px; border-radius:6px; }
+    .small-muted { color:#6c757d; font-size:.95rem; }
+    .kbd { background:#eef2ff; padding:4px 8px; border-radius:6px; font-weight:600; color:#5335d2; }
+    /* responsive small */
+    @media (max-width:576px){ .hero { padding:28px 12px; } }
+    h2 {
+      color: #5335d2;
+      font-weight: 700;
+    }
+    /* ==== QUIZ STYLE (SAMA SEPERTI GEOMETRI) ==== */
+
+.quiz-card {
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 8px solid #5f27cd;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 18px;
+}
+
+/* Animasi benar / salah */
+.benar-anim {
+  animation: benarAnim 0.4s ease;
+}
+
+.salah-anim {
+  animation: salahAnim 0.4s ease;
+}
+
+@keyframes benarAnim {
+  50% { background-color: #c8f7c5; }
+}
+
+@keyframes salahAnim {
+  50% { background-color: #ffd2d2; }
+}
+
+  </style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#341f97;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">Materi Pembelajaran</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="container mt-4">
+    <div class="hero text-center shadow">
+      <h1 class="fw-bold">Bilangan Pecahan — Materi Lengkap</h1>
+      <p class="mt-2">Pengertian, jenis, operasi hitung, konversi, contoh soal, dan latihan interaktif.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="container my-4">
+
+    <!-- Pengertian -->
+    <div class="section-box">
+      <h2>🔍 Pengertian Bilangan Pecahan</h2>
+      <p>Bilangan pecahan adalah bilangan yang digunakan untuk menyatakan sebagian dari keseluruhan. Bentuk Pecahan: Pecahan ditulis dalam bentuk <b>\( \dfrac{α}{b} \)</b>, di mana:</p>
+      <ul>
+        <li><b>α</b> disebut sebagai <b>pembilang (numerator)</b>, yang menunjukkan jumlah bagian yang diambil atau dimiliki</li>
+        <li><b>b</b> disebut sebagai <b>penyebut (denominator)</b>, yang menunjukkan jumlah total bagian sama besar yang membentuk keseluruhan</li>
+      </ul>
+      <p><i>Ingat, nilai b (penyebut) tidak boleh nol.</i></p>
+      <div class="highlight text-center fw-bold fs-4">\( \dfrac{a}{b} \)</div>
+      <ul>
+        <li><b>a (pembilang)</b> = bagian yang diambil</li>
+        <li><b>b (penyebut)</b> = jumlah bagian keseluruhan (tidak boleh nol)</li>
+      </ul>
+      <p><b>Contoh:</b></p>
+      <ul>
+        <li>Jika kamu memotong sebuah pizza menjadi 4 bagian sama besar dan kamu mengambil 1 bagian, maka bagian yang kamu ambil dapat ditulis sebagai pecahan: <b>\( \dfrac{1}{4} \)</b> (Satu per empat).</li>
+        <li><b>Pembilang = 1</b></li>
+        <li><b>Penyebut = 4</b></li>
+      </ul>
+      <div class="text-center my-3">
+        <img src="../assets/img/pizza.png" alt="Ilustrasi pecahan pizza 1/4" class="img-fluid rounded shadow" style="max-width: 300px;">
+        <p class="small-muted mt-2">Gambar: \( \dfrac{1}{4} \) bagian pizza (satu per empat dari keseluruhan)</p>
+      </div>
+      <p class="small-muted">Contoh lain: Jika pizza dibagi 4 bagian dan kamu makan 1 → \( \dfrac{1}{4} \)</p>
+    </div>
+
+    <!-- Jenis Pecahan -->
+    <div class="section-box">
+      <h2>🏙️ Jenis-jenis Pecahan</h2>
+      <ul>
+        <li><b>Pecahan Biasa</b> — contoh: \( \dfrac{1}{2} \), \( \dfrac{3}{4} \)</li>
+        <li><b>Pecahan Campuran</b> — contoh: \( 1 \dfrac{1}{2} \) (satu setengah)</li>
+        <li><b>Pecahan Desimal</b> — contoh: 0.5, 0.75</li>
+        <li><b>Pecahan Persen</b> — contoh: 50%, 75%</li>
+      </ul>
+    </div>
+
+    <!-- Operasi Hitung Pecahan Biasa -->
+    <div class="section-box">
+      <h2>🧮 Operasi Hitung Pecahan Biasa</h2>
+      <p>Pada operasi hitung pecahan, baik penjumlahan maupun pengurangan, penyebut harus disamakan terlebih dahulu.</p>
+
+      <h3 class="mt-3">➕ Penjumlahan Pecahan Biasa</h3>
+      <p>Menjumlahkan pecahan harus dilakukan dengan <b>penyebut yang sama</b>.</p>
+
+      <h4>Penjumlahan dengan Penyebut Sama</h4>
+      <p>Jika penyebutnya sudah sama, kita hanya perlu menjumlahkan pembilangnya saja. Penyebut tetap.</p>
+      <div class="highlight text-center fw-bold fs-5">\( \dfrac{a}{b} + \dfrac{c}{b} = \dfrac{a + c}{b} \)</div>
+      <p><b>Contoh:</b> \( \dfrac{2}{5} + \dfrac{1}{5} = \dfrac{2+1}{5} = \dfrac{3}{5} \)</p>
+
+      <h4 class="mt-3">Penjumlahan dengan Penyebut Berbeda</h4>
+      <p>Jika penyebutnya berbeda, kita harus menyamakan penyebutnya terlebih dahulu menggunakan <b>KPK (Kelipatan Persekutuan Terkecil)</b>.</p>
+      <ol>
+        <li>Cari KPK dari kedua penyebut.</li>
+        <li>Ubah kedua pecahan menjadi pecahan senilai dengan penyebut yang sama (KPK tadi).</li>
+        <li>Jumlahkan pembilangnya.</li>
+      </ol>
+      <p><b>Contoh:</b> \( \dfrac{1}{4} + \dfrac{1}{6} = ? \)</p>
+      <ol>
+        <li>KPK(4,6) = 12</li>
+        <li>Ubah: \( \dfrac{1}{4} = \dfrac{3}{12} \) dan \( \dfrac{1}{6} = \dfrac{2}{12} \)</li>
+        <li>Jumlahkan: \( \dfrac{3}{12} + \dfrac{2}{12} = \dfrac{5}{12} \)</li>
+      </ol>
+
+      <hr>
+
+      <h3 class="mt-3">➖ Pengurangan Pecahan Biasa</h3>
+      <p>Pengurangan pecahan juga dilakukan dengan penyebut yang sama, seperti pada penjumlahan.</p>
+
+      <h4>Pengurangan dengan Penyebut Sama</h4>
+      <p>Jika penyebutnya sudah sama, kita hanya perlu mengurangkan pembilangnya saja. Penyebut tetap.</p>
+      <div class="highlight text-center fw-bold fs-5">\( \dfrac{a}{b} - \dfrac{c}{b} = \dfrac{a - c}{b} \)</div>
+      <p><b>Contoh:</b> \( \dfrac{3}{4} - \dfrac{1}{4} = \dfrac{3-1}{4} = \dfrac{2}{4} = \dfrac{1}{2} \)</p>
+
+      <h4 class="mt-3">Pengurangan dengan Penyebut Berbeda</h4>
+      <p>Jika penyebutnya berbeda, kita harus menyamakan penyebutnya terlebih dahulu menggunakan KPK dari kedua penyebut.</p>
+      <ol>
+        <li>Cari KPK dari kedua penyebut.</li>
+        <li>Ubah kedua pecahan menjadi pecahan senilai dengan penyebut yang sama (KPK).</li>
+        <li>Kurangkan pembilangnya.</li>
+      </ol>
+      <p><b>Contoh:</b> \( \dfrac{5}{6} - \dfrac{1}{4} = ? \)</p>
+      <ol>
+        <li>KPK(6,4) = 12</li>
+        <li>Ubah: \( \dfrac{5}{6} = \dfrac{10}{12} \) dan \( \dfrac{1}{4} = \dfrac{3}{12} \)</li>
+        <li>Kurangkan: \( \dfrac{10}{12} - \dfrac{3}{12} = \dfrac{7}{12} \)</li>
+      </ol>
+
+      <hr>
+
+      <h3 class="mt-3">🔄 Operasi Campuran Pecahan</h3>
+      <p>Operasi hitung campuran penjumlahan dan pengurangan pecahan biasa mengikuti aturan yang sama, yaitu:</p>
+      <ul>
+        <li>Samakan penyebutnya jika berbeda.</li>
+        <li>Lakukan operasi hitung pembilangnya secara berurutan dari kiri ke kanan.</li>
+      </ul>
+      <p><b>Contoh:</b> \( \dfrac{1}{2} + \dfrac{1}{3} - \dfrac{1}{6} \)</p>
+      <ol>
+        <li>KPK(2,3,6) = 6</li>
+        <li>Ubah: \( \dfrac{1}{2} = \dfrac{3}{6} \); \( \dfrac{1}{3} = \dfrac{2}{6} \); \( \dfrac{1}{6} = \dfrac{1}{6} \)</li>
+        <li>Hitung: \( \dfrac{3}{6} + \dfrac{2}{6} - \dfrac{1}{6} = \dfrac{4}{6} = \dfrac{2}{3} \)</li>
+      </ol>
+
+      <div class="text-center mt-4">
+        <img src="../assets/img/illustrasi.png" alt="Ilustrasi operasi pecahan" class="img-fluid rounded shadow" style="width: 100%; max-width: 350px; height: auto; object-fit: contain;">
+        <p class="small-muted mt-2">Ilustrasi penjumlahan pecahan</p>
+      </div>
+    </div>
+
+    <!-- Penyederhanaan -->
+    <div class="section-box">
+      <h2>🌏 Penyederhanaan Pecahan</h2>
+      <p>Jika pembilang dan penyebut punya faktor pembagi sama, bagi keduanya.</p>
+      <p><b>Contoh:</b> \( \dfrac{6}{8} \rightarrow \dfrac{3}{4} \)</p>
+      <p class="small-muted">Gunakan FPB (faktor persekutuan terbesar) untuk menyederhanakan.</p>
+    </div>
+
+    <!-- Konversi -->
+    <div class="section-box">
+      <h2>🏞️ Konversi Pecahan — Desimal — Persen</h2>
+      <ul>
+        <li><b>Pecahan → Desimal:</b> bagi pembilang dengan penyebut → contoh \( \dfrac{1}{4} = 0.25 \)</li>
+        <li><b>Desimal → Persen:</b> kalikan 100 → 0.25 → 25%</li>
+        <li><b>Pecahan → Persen:</b> pecahan → desimal → persen (atau langsung hitung)</li>
+      </ul>
+      <div class="highlight">Contoh: \( \dfrac{3}{5} = 0.6 = 60\% \)</div>
+    </div>
+
+    <!-- Soal Cerita -->
+    <div class="section-box">
+      <h2>🧭 Contoh Soal Cerita</h2>
+      <p>Ibu punya <b>\( \dfrac{1}{4} \)</b> liter minyak, membeli lagi <b>\( \dfrac{1}{2} \)</b> liter, lalu memakai <b>\( \dfrac{1}{8} \)</b> liter. Berapa sisa?</p>
+      <ol>
+        <li>Ubah semua ke penyebut 8 → \( \dfrac{1}{4} = \dfrac{2}{8} \); \( \dfrac{1}{2} = \dfrac{4}{8} \); \( \dfrac{1}{8} = \dfrac{1}{8} \)</li>
+        <li>Hitung: \( \dfrac{2}{8} + \dfrac{4}{8} - \dfrac{1}{8} = \dfrac{5}{8} \)</li>
+      </ol>
+      <p><b>Jawaban: \( \dfrac{5}{8} \) liter</b></p>
+
+      <!-- Tambahan gambar ilustrasi -->
+      <div class="text-center mt-4">
+        <img src="../assets/img/illustrasi minyak.png" alt="Ilustrasi operasi pecahan" class="img-fluid rounded shadow" style="width: 100%; max-width: 350px; height: auto; object-fit: contain;">
+        <p class="small-muted mt-2">Ilustrasi Minyak</p>
+      </div>
+    </div>
+
+    <!-- Kalkulator Pecahan -->
+    <div class="section-box">
+      <h2>🧩 Kalkulator Pecahan (Penjumlahan / Pengurangan)</h2>
+      <p class="small-muted">Masukkan pecahan dalam format <kbd class="kbd">\( \dfrac{a}{b} \)</kbd> (contoh: \( \dfrac{3}{4} \))</p>
+      <div class="row g-2 align-items-end">
+        <div class="col-md-3">
+          <label class="form-label">Pecahan 1</label>
+          <input type="text" id="f1" class="form-control" placeholder="contoh: 1/2">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Operator</label>
+          <select id="op" class="form-select">
+            <option value="+">+</option>
+            <option value="-">−</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Pecahan 2</label>
+          <input type="text" id="f2" class="form-control" placeholder="contoh: 1/4">
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-primary w-100" onclick="hitungPecahan()">Hitung</button>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div id="hasilPecahan" class="fw-bold"></div>
+        <div id="langkahPecahan" class="small-muted mt-2"></div>
+      </div>
+    </div>
+
+    <!-- quiz -->
+    <div class="section-box">
+      <h2>Latihan</h2>
+      <p>Jawab soal berikut dan cek hasilnya!</p>
+      <div id="quiz-area"></div>
+      <p id="skorText" class="fw-bold mt-3"></p>
+    </div>
+
+    <!-- Back -->
+    <div class="text-center p-3">
+      <a href="../index.html" class="btn btn-secondary">⬅ Kembali</a>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS Kalkulator & Latihan -->
+  <script src="../js/geometri/bil-pecahan/bil-pecahan.js"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>
