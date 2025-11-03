@@ -1,2 +1,157 @@
-# TEAM-7
-Pembelajaran Bilangan Pecahan dan Geometri Kelas 6
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Pembelajaran Interaktif Kelas 6</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+  font-family: 'Poppins', sans-serif;
+  /* 🌈 gradasi + gambar buatan sendiri */
+  background: 
+    /* linear-gradient(180deg, rgba(198,232,255,0.85) 0%, rgba(254,245,196,0.85) 100%), */
+    linear-gradient(180deg, rgba(0, 64, 128, 0.9) 0%, rgba(135, 206, 250, 0.85) 100%),
+    url('/assets/img/Matematika.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;       /* biar responsif di semua layar */
+  background-position: center;  /* fokus di tengah */
+  background-attachment: fixed; /* opsional: biar efek parallax di desktop */
+  min-height: 100vh;
+}
+
+
+    .menu-card {
+      transition: all 0.25s ease;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .emoji {
+      font-size: 3rem;
+    }
+
+    header h1, header p {
+      text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+    }
+    .foto-kelompok {
+  width: 100%;
+  max-width: 250px;   /* batas ukuran di desktop */
+  height: 250px;      /* buat tinggi sama supaya lingkaran sempurna */
+  object-fit: cover;  /* agar gambar tetap proporsional dalam lingkaran */
+  border-radius: 50%; /* bikin bulat */
+  margin: 0 auto;     /* biar tetap di tengah */
+  display: block;
+  .foto-kelompok {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+section.text-center p {
+  font-size: 0.95rem;
+  color: #333;
+}
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="text-center py-5 ">
+    <h1 class="fw-bold text-primary text-white">📚 Pembelajaran Matematika Interaktif Kelas 6</h1>
+    <p class="text-dark mt-2 text-white">Belajar menjadi lebih seru dan menyenangkan!</p>
+  </header>
+  
+  <!-- Menu Section -->
+  <main class="container">
+     <!-- Foto Kelompok -->
+      <section class="text-center my-1">
+  <h3 class="fw-bold text-primary mb-3 text-white">Kelompok 7</h3>
+
+  <img src="assets/img/Kelompok.jpeg" 
+       alt="Foto Kelompok Mahasiswa PGSD" 
+       class="img-fluid shadow foto-kelompok">
+
+  <div class="mt-3 text-white">
+    <p class="fw-semibold mb-1">Willio Irham Syahdana <span class="text-white">(230401140065)</span></p>
+    <p class="fw-semibold mb-1">Izzan Dhiyaudin Prasetyo <span class="text-white">(230401140083)</span></p>
+    <p class="fw-semibold mb-1">Ahmad Marzuki <span class="text-white">(230401140084)</span></p>
+  </div>
+</section>
+    <div class="row justify-content-center g-4 mt-5">
+
+      <!-- Geometri -->
+      <div class="col-md-3 col-6">
+        <a href="geometri/geometri.html" class="text-decoration-none">
+          <div class="card menu-card text-center p-4" style="background-color: #ffecd1;">
+            <div class="emoji mb-2">🔺</div>
+            <h5 class="fw-bold text-dark">Geometri</h5>
+            <p class="text-muted small">Kenali bangun ruang kerucut</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Bilangan Pecahan -->
+      <div class="col-md-3 col-6">
+        <a href="bil-pecahan/pecahan.html" class="text-decoration-none">
+          <div class="card menu-card text-center p-4" style="background-color: #d1f7c4;">
+            <div class="emoji mb-2">🧮</div>
+            <h5 class="fw-bold text-dark">Bilangan Pecahan</h5>
+            <p class="text-muted small">Belajar pecahan</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quiz -->
+      <div class="col-md-3 col-6">
+        <a href="quiz/quiz.html" class="text-decoration-none">
+          <div class="card menu-card text-center p-4" style="background-color: #ffe3e3;">
+            <div class="emoji mb-2">🎯</div>
+            <h5 class="fw-bold text-dark">Quiz</h5>
+            <p class="text-muted small">Uji pemahamanmu di sini!</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Evaluasi -->
+      <div class="col-md-3 col-6">
+        <a href="evaluasi/eval.html" class="text-decoration-none">
+          <div class="card menu-card text-center p-4" style="background-color: #d8eaff;">
+            <div class="emoji mb-2">📝</div>
+            <h5 class="fw-bold text-dark">Evaluasi</h5>
+            <p class="text-muted small">Cek hasil belajar kamu!</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+
+
+  <!-- Footer -->
+  <footer class="text-center mt-5 py-4 text-secondary small">
+    &copy; 2025 -  Pembelajaran Matematika Interaktif Kelas 6
+  </footer>
+
+</body>
+</html>
