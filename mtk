@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matematika Kelompok 6 C23</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="cover" id="cover">
+    <div class="overlay">
+      <h1>Matematika Kelompok 6 C23</h1>
+      <p class="members">
+        1. Agustina Firmanti (230401140081) •
+        2. Isfa Anni (230401140082) •
+        3. Bilqis Elmilqis (230401140089)
+      </p>
+      <nav class="menu">
+        <button data-target="bilangan" class="menu-btn active">Bilangan Cacah</button>
+        <button data-target="geometri" class="menu-btn">Geometri (Jajar Genjang)</button>
+        <button data-target="kuis" class="menu-btn">Kuis</button>
+        <button data-target="evaluasi" class="menu-btn">Soal Evaluasi & Hasil</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Bilangan -->
+    <section id="bilangan" class="page active-page">
+      <h2>Bilangan Cacah (Penjumlahan & Pengurangan)</h2>
+      <div class="flex-row">
+        <div class="content">
+          <p>Materi dan latihan untuk bilangan cacah.</p>
+
+          <!-- Embedded PDF (from assets) -->
+          <div class="pdf-embed">
+            <label>Preview materi PDF:</label>
+            <iframe id="pdfBilangan" src="" frameborder="0"></iframe>
+            <p class="hint">Jika PDF tidak tampil, klik tombol "Load PDF" atau upload file dari komputer.</p>
+            <div class="row">
+              <button id="loadBilanganPdf">Load PDF (assets)</button>
+              <input type="file" id="bilanganPdfUpload" accept="application/pdf">
+            </div>
+          </div>
+        </div>
+
+        <aside class="side">
+          <h3>Modifikasi Konten</h3>
+          <label>Ubah judul materi:</label>
+          <input id="bilanganTitleEdit" type="text" value="Bilangan Cacah (Penjumlahan & Pengurangan)">
+          <label>Upload gambar ilustrasi:</label>
+          <input id="bilanganImageUpload" type="file" accept="image/*">
+          <img id="bilanganImagePreview" alt="preview" class="preview-img" />
+          <label>Upload video (mp4):</label>
+          <input id="bilanganVideoUpload" type="file" accept="video/*">
+          <video id="bilanganVideoPreview" controls class="preview-video"></video>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Geometri -->
+    <section id="geometri" class="page">
+      <h2>Geometri — Jajar Genjang</h2>
+      <div class="flex-row">
+        <div class="content">
+          <p>Materi jajar genjang: sifat, keliling, luas, contoh soal.</p>
+
+          <div class="pdf-embed">
+            <label>Preview materi Geometri (PDF):</label>
+            <iframe id="pdfGeometri" src="" frameborder="0"></iframe>
+            <div class="row">
+              <button id="loadGeometriPdf">Load PDF (assets)</button>
+              <input type="file" id="geometriPdfUpload" accept="application/pdf">
+            </div>
+          </div>
+
+          <div class="image-draw">
+            <p>Gambar Jajar Genjang (Anda bisa upload gambar contoh/hasil gambar):</p>
+            <input type="file" id="jajarImageUpload" accept="image/*">
+            <img id="jajarImagePreview" class="preview-img" />
+          </div>
+        </div>
+
+        <aside class="side">
+          <h3>Modifikasi Konten</h3>
+          <textarea id="geometriNotes" rows="8" placeholder="Catatan / penjelasan tambahan..."></textarea>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Kuis -->
+    <section id="kuis" class="page">
+      <h2>Kuis</h2>
+      <div class="quiz-box">
+        <p><strong>Contoh soal (pilih jawaban):</strong></p>
+        <div id="quizQuestion">Loading...</div>
+        <div id="quizOptions"></div>
+        <button id="checkAnswer">Cek Jawaban</button>
+        <p id="quizResult"></p>
+      </div>
+
+      <div class="upload-area">
+        <h4>Tambah pertanyaan (upload PDF soal / gambar / video)</h4>
+        <input id="kuisPdfUpload" type="file" accept="application/pdf,image/*,video/*">
+        <div id="kuisPreview"></div>
+      </div>
+    </section>
+
+    <!-- Evaluasi & Hasil -->
+    <section id="evaluasi" class="page">
+      <h2>Soal Evaluasi & Hasil</h2>
+      <div class="flex-row">
+        <div class="content">
+          <div class="pdf-embed">
+            <label>Soal Evaluasi (PDF):</label>
+            <iframe id="pdfEvaluasi" src="" frameborder="0"></iframe>
+            <div class="row">
+              <button id="loadEvaluasiPdf">Load PDF (assets)</button>
+              <input type="file" id="evaluasiPdfUpload" accept="application/pdf">
+            </div>
+          </div>
+
+          <div class="results">
+            <h3>Hasil Evaluasi Siswa</h3>
+            <p>Masukkan nama dan skor:</p>
+            <input id="studentName" placeholder="Nama siswa">
+            <input id="studentScore" placeholder="Skor (0-100)" type="number" min="0" max="100">
+            <button id="saveResult">Simpan Hasil</button>
+
+            <h4>Daftar Hasil:</h4>
+            <ul id="resultList"></ul>
+            <button id="exportCsv">Ekspor CSV</button>
+          </div>
+        </div>
+
+        <aside class="side">
+          <h3>Catatan Pengajar</h3>
+          <textarea id="evaluasiNotes" rows="10" placeholder="Catatan..."></textarea>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© Matematika Kelompok 6 C23</small>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+// ----------------- NAVIGATION -----------------
+const menuBtns = document.querySelectorAll('.menu-btn');
+const pages = document.querySelectorAll('.page');
+
+menuBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    menuBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.target;
+    pages.forEach(p=>{
+      p.id === target ? p.classList.add('active-page') : p.classList.remove('active-page');
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// ----------------- Helper: safe path to assets (encode spaces) -----------------
+function assetPath(name){
+  // try assets/name first; encode spaces to %20 if present
+  return `assets/${encodeURIComponent(name)}`;
+}
+
+// ----------------- PDF Load buttons (from assets) -----------------
+document.getElementById('loadBilanganPdf').addEventListener('click', ()=>{
+  // file name used in folder: bilangan_materi.pdf or "bilangan materi.pdf"
+  const candidates = ['bilangan_materi.pdf','bilangan materi.pdf','bilangan%20materi.pdf'];
+  document.getElementById('pdfBilangan').src = assetPath('bilangan_materi.pdf');
+});
+document.getElementById('loadGeometriPdf').addEventListener('click', ()=>{
+  document.getElementById('pdfGeometri').src = assetPath('Geometri.pdf');
+});
+document.getElementById('loadEvaluasiPdf').addEventListener('click', ()=>{
+  document.getElementById('pdfEvaluasi').src = assetPath('Soal_Evaluasi_mtk.pdf');
+});
+
+// ----------------- PDF upload previews (file input -> preview via object URL) -----------------
+function wirePdfUpload(inputId, iframeId){
+  const input = document.getElementById(inputId);
+  const frame = document.getElementById(iframeId);
+  input.addEventListener('change', e=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const url = URL.createObjectURL(file);
+    frame.src = url;
+  });
+}
+wirePdfUpload('bilanganPdfUpload','pdfBilangan');
+wirePdfUpload('geometriPdfUpload','pdfGeometri');
+wirePdfUpload('evaluasiPdfUpload','pdfEvaluasi');
+
+// ----------------- Image & Video Upload preview for Bilangan -----------------
+function previewFile(inputId, imgId, videoId){
+  const inp = document.getElementById(inputId);
+  const img = imgId ? document.getElementById(imgId) : null;
+  const video = videoId ? document.getElementById(videoId) : null;
+  inp.addEventListener('change', e=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const url = URL.createObjectURL(file);
+    if(file.type.startsWith('image/') && img) { img.src = url; img.style.display='block'; }
+    if(file.type.startsWith('video/') && video) { video.src = url; video.style.display='block'; }
+  });
+}
+previewFile('bilanganImageUpload','bilanganImagePreview',null);
+previewFile('bilanganVideoUpload',null,'bilanganVideoPreview');
+previewFile('jajarImageUpload','jajarImagePreview',null);
+
+// ----------------- Bilangan title edit -----------------
+const titleEdit = document.getElementById('bilanganTitleEdit');
+titleEdit.addEventListener('input', e=>{
+  const val = e.target.value;
+  document.querySelector('#bilangan h2').textContent = val;
+});
+
+// ----------------- QUIZ (simple example) -----------------
+const quizQ = {
+  q: "523 + 423 = ...",
+  options: ["946","940","945","956"],
+  answer: "946"
+};
+document.getElementById('quizQuestion').textContent = quizQ.q;
+const optsDiv = document.getElementById('quizOptions');
+quizQ.options.forEach(opt=>{
+  const b = document.createElement('button');
+  b.type='button';
+  b.textContent = opt;
+  b.className='quizOpt';
+  b.addEventListener('click', ()=> {
+    document.querySelectorAll('.quizOpt').forEach(x=>x.style.outline='none');
+    b.style.outline='3px solid rgba(43,122,75,0.25)';
+    b.dataset.selected = '1';
+  });
+  optsDiv.appendChild(b);
+});
+document.getElementById('checkAnswer').addEventListener('click', ()=>{
+  const sel = Array.from(document.querySelectorAll('.quizOpt')).find(x=>x.dataset.selected==='1');
+  const res = document.getElementById('quizResult');
+  if(!sel){ res.textContent = 'Pilih jawaban dulu.'; return;}
+  if(sel.textContent === quizQ.answer){
+    res.textContent = 'Benar! 🎉';
+  } else {
+    res.textContent = `Salah. Jawaban yang benar: ${quizQ.answer}`;
+  }
+});
+
+// ----------------- Evaluasi: simpan hasil & ekspor CSV -----------------
+const results = [];
+const resultList = document.getElementById('resultList');
+document.getElementById('saveResult').addEventListener('click', ()=>{
+  const name = document.getElementById('studentName').value.trim();
+  const score = document.getElementById('studentScore').value;
+  if(!name || score===''){ alert('Isi nama dan skor'); return; }
+  results.push({name,score});
+  const li = document.createElement('li');
+  li.textContent = `${name} — ${score}`;
+  resultList.appendChild(li);
+  document.getElementById('studentName').value = '';
+  document.getElementById('studentScore').value = '';
+});
+document.getElementById('exportCsv').addEventListener('click', ()=>{
+  if(results.length===0){ alert('Belum ada data'); return;}
+  let csv = 'Nama,Skor\n' + results.map(r=>`${r.name},${r.score}`).join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'hasil_evaluasi.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+});
